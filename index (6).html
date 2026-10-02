@@ -1,0 +1,244 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Fiche Psychologie Sociale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: bilan de vérification en tête, carte des 5 thèses vers les 3 parties du plan, puis une section par thèse; chaque carte auteur porte un verdict sourcé. */
+:root{
+  --bg:#f5f6f9; --surface:#ffffff; --fg:#161a26; --muted:#5b6275; --line:#dfe2ea;
+  --t1:#2f5bd4; --t2:#a8327f; --t3:#23785a; --t4:#9a6200; --t5:#5a3fb8;
+  --ok:#1b7447; --ok-bg:#e3f4ea; --fix:#b42318; --fix-bg:#fde8e6; --nua:#8a5a00; --nua-bg:#fdf1d6; --unk:#4b5366; --unk-bg:#e8eaf0;
+  --font-display:'Bricolage Grotesque',system-ui,sans-serif;
+  --font-body:'Instrument Sans',system-ui,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1219; --surface:#181c27; --fg:#e8ebf3; --muted:#9aa2b6; --line:#2a3040;
+  --t1:#7d9dff; --t2:#e783c0; --t3:#5fcf9f; --t4:#e6b04f; --t5:#a794ff;
+  --ok:#6fdca1; --ok-bg:#12301f; --fix:#ff9c92; --fix-bg:#3b1815; --nua:#f0c36a; --nua-bg:#33270c; --unk:#b3bacb; --unk-bg:#242a38; color-scheme:dark;}}
+:root[data-theme="dark"]{
+  --bg:#0f1219; --surface:#181c27; --fg:#e8ebf3; --muted:#9aa2b6; --line:#2a3040;
+  --t1:#7d9dff; --t2:#e783c0; --t3:#5fcf9f; --t4:#e6b04f; --t5:#a794ff;
+  --ok:#6fdca1; --ok-bg:#12301f; --fix:#ff9c92; --fix-bg:#3b1815; --nua:#f0c36a; --nua-bg:#33270c; --unk:#b3bacb; --unk-bg:#242a38; color-scheme:dark;}
+body{background:var(--bg);color:var(--fg);font-family:var(--font-body);font-size:16px;line-height:1.55;padding-inline:max(16px,4vw);padding-block:32px 72px}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:40px}
+h1,h2,h3{font-family:var(--font-display);text-wrap:balance;margin:0;line-height:1.1}
+header{display:flex;flex-direction:column;gap:12px}
+.eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font-size:clamp(32px,6vw,56px);font-weight:700;letter-spacing:-.02em}
+.lede{max-width:65ch;color:var(--muted);margin:0}
+
+/* verdicts */
+.v{font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;border-radius:6px;padding:2px 7px;white-space:nowrap}
+.v.ok{background:var(--ok-bg);color:var(--ok)}
+.v.fix{background:var(--fix-bg);color:var(--fix)}
+.v.nua{background:var(--nua-bg);color:var(--nua)}
+.v.unk{background:var(--unk-bg);color:var(--unk)}
+.audit{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:16px}
+.audit h2{font-size:22px}
+.tally{display:flex;flex-wrap:wrap;gap:10px}
+.tally div{display:flex;align-items:baseline;gap:8px;font-size:14px;color:var(--muted)}
+.tally b{font-family:var(--font-display);font-size:26px;color:var(--fg);font-variant-numeric:tabular-nums}
+.fixes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:10px;margin:0;padding:0;list-style:none}
+.fixes li{border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:14.5px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.fixes li span.w{font-weight:600}
+
+/* carte */
+.map{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.part{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.part h3{font-size:15px;font-weight:600;color:var(--muted)}
+.part .goal{font-size:14px;margin:0}
+.chips{display:flex;flex-direction:column;gap:8px}
+.chip{--c:var(--t1);border:1px solid color-mix(in srgb,var(--c) 45%,transparent);background:color-mix(in srgb,var(--c) 10%,var(--surface));color:var(--fg);border-radius:8px;padding:8px 10px;font-size:14px;font-weight:500;display:flex;gap:8px;align-items:baseline;cursor:pointer;text-align:left;font-family:inherit;width:100%}
+.chip b{font-family:var(--font-mono);color:var(--c);font-size:12px}
+.chip:focus-visible,.filter button:focus-visible{outline:2px solid var(--fg);outline-offset:2px}
+.filter{display:flex;flex-wrap:wrap;gap:8px}
+.filter button{font-family:var(--font-body);font-size:14px;font-weight:500;padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer}
+.filter button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+
+/* thèses */
+.thesis{--c:var(--t1);display:flex;flex-direction:column;gap:16px;scroll-margin-top:16px}
+.thesis[hidden]{display:none!important}
+.thesis-head{display:flex;flex-direction:column;gap:6px;padding-bottom:12px;border-bottom:2px solid var(--c)}
+.tag{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--c)}
+.thesis h2{font-size:clamp(22px,3.4vw,30px);font-weight:700}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.card h3{font-size:18px;font-weight:600;display:flex;flex-wrap:wrap;gap:8px;align-items:baseline}
+.year{font-family:var(--font-mono);font-size:12px;color:var(--c);border:1px solid color-mix(in srgb,var(--c) 40%,transparent);border-radius:6px;padding:1px 6px}
+.card p{margin:0;font-size:15px}
+.src{font-size:13.5px;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px;margin-top:auto!important}
+.src b{color:var(--fg);font-weight:600}
+.fil{margin:0;font-size:15px;background:color-mix(in srgb,var(--c) 9%,var(--surface));border-radius:10px;padding:12px 14px}
+.fil b{color:var(--c)}
+blockquote{margin:0;font-size:15px;font-style:italic}
+
+/* fin */
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:16px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.box h2{font-size:20px}
+.box ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font-size:15px}
+.box p{margin:0;font-size:15px}
+.links{columns:2 300px;column-gap:24px;font-size:14px}
+.links li{break-inside:avoid;margin-bottom:6px;overflow-wrap:anywhere}
+a{color:var(--t1)}
+.conf{display:flex;flex-wrap:wrap;gap:8px;font-size:13px}
+.conf span{border:1px solid var(--line);border-radius:999px;padding:4px 10px;background:var(--bg)}
+@media (max-width:720px){.map{grid-template-columns:1fr}}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Psychologie sociale · BUT3 · intro + plan détaillé</div>
+  <h1>Les auteurs du cours, classés par thèse et vérifiés</h1>
+  <p class="lede">Chaque point de tes notes a été recherché en ligne. Chaque carte porte un verdict : confirmé, corrigé, à nuancer ou non vérifiable. Ce que je n'ai pas pu confirmer est dit tel quel.</p>
+</header>
+
+<section class="audit" aria-label="Bilan de vérification">
+  <h2>Corrections appliquées</h2>
+  <div class="tally">
+    <div><b>7</b><span class="v ok">confirmé</span></div>
+    <div><b>4</b><span class="v ok">corrigé</span></div>
+    <div><b>4</b><span class="v nua">à nuancer</span></div>
+    <div><b>1</b><span class="v unk">non vérifié</span></div>
+  </div>
+  <ul class="fixes">
+    <li><span class="w">Hamlet retiré de l'accroche</span><span>« To be, or not to be » parle de la vie, de la mort et du suicide, pas d'« être ou paraître ». L'accroche proposée plus bas utilise la citation de Tarde, que j'ai pu vérifier.</span></li>
+    <li><span class="w">Coch et French</span><span>« John Coch » devient John R. P. French Jr. (Lester Coch et John R. P. French Jr., Human Relations, 1948).</span></li>
+    <li><span class="w">Kahneman et Tversky 1974</span><span>Conservatisme et biais de confirmation retirés de leur fiche. Le conservatisme est rattaché à Phillips et Edwards (1966).</span></li>
+    <li><span class="w">Tarde : 1890</span><span>La date « 1993 » est remplacée par 1890 (2e édition 1895). La citation était exacte.</span></li>
+    <li><span class="w">Reste non vérifié : Moscovici 1987</span><span>Je n'ai pas pu retrouver cette citation ni sa date, donc je n'ai rien pu corriger. Cite-la « selon le cours ».</span></li>
+  </ul>
+</section>
+
+<section aria-label="Carte du plan">
+  <div class="map">
+    <div class="part"><h3>Partie 1 du plan possible</h3><p class="goal">Le groupe contraint l'individu</p>
+      <div class="chips"><button class="chip" style="--c:var(--t1)" data-go="t1"><b>T1</b>Le groupe façonne l'individu</button></div></div>
+    <div class="part"><h3>Partie 2 du plan possible</h3><p class="goal">L'individu est biaisé et imitateur</p>
+      <div class="chips">
+        <button class="chip" style="--c:var(--t2)" data-go="t2"><b>T2</b>L'individu n'est pas rationnel</button>
+        <button class="chip" style="--c:var(--t4)" data-go="t4"><b>T4</b>Le social naît de l'imitation</button></div></div>
+    <div class="part"><h3>Partie 3 du plan possible</h3><p class="goal">Coopérer malgré tout</p>
+      <div class="chips">
+        <button class="chip" style="--c:var(--t3)" data-go="t3"><b>T3</b>L'individu se replie sur lui-même</button>
+        <button class="chip" style="--c:var(--t5)" data-go="t5"><b>T5</b>Coopérer ou entrer en conflit</button></div></div>
+  </div>
+</section>
+
+<div class="filter" role="group" aria-label="Filtrer par thèse">
+  <button aria-pressed="true" data-f="all">Toutes</button>
+  <button aria-pressed="false" data-f="t1">T1</button>
+  <button aria-pressed="false" data-f="t2">T2</button>
+  <button aria-pressed="false" data-f="t3">T3</button>
+  <button aria-pressed="false" data-f="t4">T4</button>
+  <button aria-pressed="false" data-f="t5">T5</button>
+</div>
+
+<section class="thesis" id="t1" style="--c:var(--t1)">
+  <div class="thesis-head"><div class="tag">Thèse 1</div><h2>Le groupe façonne l'individu : influence, conformité, idéologie</h2></div>
+  <div class="cards">
+    <article class="card"><h3>Émile Durkheim <span class="year">1912</span><span class="v ok">confirmé</span></h3><p>« Conformisme logique » : la société ne peut vivre sans un minimum d'accord sur les manières de penser.</p><p class="src"><b>Source</b> · Les Formes élémentaires de la vie religieuse (1912) : « il y a un minimum de conformisme logique dont elle ne peut davantage se passer ».</p></article>
+    <article class="card"><h3>Gordon Allport <span class="year">1985</span><span class="v ok">confirmé</span></h3><p>La psychologie sociale étudie comment pensées, sentiments et comportements sont influencés par la présence réelle, imaginée ou implicite des autres.</p><p class="src"><b>Source</b> · cité comme Allport (1985), « The Historical Background of Social Psychology », Handbook of Social Psychology, Lindzey et Aronson, p. 5. Allport est mort en 1967 : 1985 est une réédition d'un texte plus ancien (de mémoire, non vérifié ici).</p></article>
+    <article class="card"><h3>Serge Moscovici <span class="year">1987 ?</span><span class="v unk">non vérifié</span></h3><blockquote>« La psychologie sociale est la science des phénomènes de l'idéologie et des phénomènes de communication. »</blockquote><p class="src"><b>Verdict</b> · je ne peux pas vérifier cette information. Je n'ai trouvé ni la formule exacte ni la source de 1987. Recopie-la depuis ton cours, ou cite-la en disant « selon le cours ».</p></article>
+    <article class="card"><h3>Otto Kernberg <span class="year">1998</span><span class="v nua">à nuancer</span></h3><p>Le livre existe : Ideology, Conflict, and Leadership in Groups and Organizations (Yale University Press, 1998). Kernberg y reprend une définition d'Althusser : un système de représentations propre à une société, et il ajoute des représentations illusoires déterminées de façon inconsciente.</p><p class="src"><b>Écart avec tes notes</b> · « système de croyances d'un groupe, d'une masse ou d'une société » est une paraphrase. Je n'ai pas vérifié l'opposition « idéologie contre faits scientifiques » ni l'exemple de la bourse.</p></article>
+    <article class="card"><h3>Coch et French <span class="year">1948</span><span class="v ok">corrigé</span></h3><p>Lester Coch et John R. P. French Jr., « Overcoming Resistance to Change », Human Relations, vol. 1, p. 512-532.</p><p class="src"><b>Corrigé</b> · « John Coch » devient John R. P. French Jr. Non vérifié : je n'ai pas pu confirmer que l'article démontre une « convergence graduelle vers une norme de groupe » : demande au prof comment il l'utilise.</p></article>
+    <article class="card"><h3>Yuval Noah Harari <span class="year">2024</span><span class="v nua">à nuancer</span></h3><p>Nexus (10 septembre 2024) évoque bien la chasse aux sorcières, comme exemple d'un flot d'informations fausses ou trompeuses qui l'emporte sur les faits.</p><p class="src"><b>Écart avec tes notes</b> · « on écarte ceux qui ne sont pas en phase » est une lecture possible, mais le point de Harari tel que résumé est que plus d'information ne donne pas plus de vérité. Source : résumé de Wikipédia, pas le livre.</p></article>
+  </div>
+  <p class="fil"><b>Fil de la thèse</b> · on pense et on agit sous la pression de normes et d'idéologies de groupe, y compris contre les faits.</p>
+</section>
+
+<section class="thesis" id="t2" style="--c:var(--t2)">
+  <div class="thesis-head"><div class="tag">Thèse 2</div><h2>L'individu n'est pas aussi rationnel qu'il le croit</h2></div>
+  <div class="cards">
+    <article class="card"><h3>Daniel Kahneman et Amos Tversky <span class="year">1974</span><span class="v ok">corrigé</span></h3><p>« Judgment under Uncertainty: Heuristics and Biases », Science, vol. 185, p. 1124-1131. Trois heuristiques : représentativité, disponibilité, ancrage.</p><p class="src"><b>Corrigé</b> · conservatisme et biais de confirmation retirés de cet article (le résumé consulté ne les mentionne pas). Pour la confirmation, de mémoire (non vérifié ici), on cite plutôt Peter Wason.</p></article>
+    <article class="card"><h3>Lawrence Phillips et Ward Edwards <span class="year">1966</span><span class="v ok">confirmé</span></h3><p>« Conservatism in a simple probability inference task » : les sujets révisent leurs probabilités trop lentement face à de nouvelles preuves. C'est le biais de conservatisme.</p><p class="src"><b>Source</b> · notice PubMed de l'article. Le sens du biais vient du titre et de ma connaissance du sujet.</p></article>
+    <article class="card"><h3>Léon Festinger <span class="year">1957</span><span class="v ok">confirmé</span></h3><p>A Theory of Cognitive Dissonance : des cognitions incohérentes créent un inconfort psychologique qui pousse à réduire l'écart. Ton schéma colle : « je n'aime pas / je mange » produit une dissonance.</p><p class="src"><b>À ajouter</b> · la date manquait dans tes notes.</p></article>
+  </div>
+  <p class="fil"><b>Fil de la thèse</b> · même seul, l'individu déforme l'information et se contredit, ce qui rend le groupe plus difficile à piloter.</p>
+</section>
+
+<section class="thesis" id="t3" style="--c:var(--t3)">
+  <div class="thesis-head"><div class="tag">Thèse 3</div><h2>L'individu se replie sur lui-même</h2></div>
+  <div class="cards">
+    <article class="card"><h3>Hannah Arendt <span class="year">1958 ?</span><span class="v nua">à nuancer</span></h3><p>Dans The Human Condition (1958), elle critique le raisonnement utilitaire et la perte du monde commun. Elle ne défend pas le repli privé : elle le décrit comme un danger moderne.</p><p class="src"><b>Écart avec tes notes</b> · « prisme de l'utilité et du bonheur privé, indifférence aux autres » n'est pas son propos central selon ma source. Je ne sais pas quel texte ton prof cite : demande-le.</p></article>
+    <article class="card"><h3>Alexis de Tocqueville <span class="year">1840</span><span class="v ok">confirmé</span></h3><p>De la démocratie en Amérique, tome II : l'individualisme pousse chaque citoyen à se retirer avec sa famille et ses amis, et à négliger les affaires communes. Il le distingue de l'égoïsme.</p><p class="src"><b>Source</b> · le tome II est de 1840 (de mémoire). L'idée de repli est confirmée.</p></article>
+  </div>
+  <p class="fil"><b>Fil de la thèse</b> · contrepoint à la thèse 1 : l'individualisme démocratique affaiblit le lien social.</p>
+</section>
+
+<section class="thesis" id="t4" style="--c:var(--t4)">
+  <div class="thesis-head"><div class="tag">Thèse 4</div><h2>Le social naît de l'imitation et du désir imité</h2></div>
+  <div class="cards">
+    <article class="card"><h3>Gabriel Tarde <span class="year">1890 / 1895</span><span class="v ok">corrigé</span></h3><blockquote>« L'être social, en tant que social, est imitateur par essence. »</blockquote><p>Citation retrouvée dans Les lois de l'imitation, 2e édition (1895), chapitre I, p. 10.</p><p class="src"><b>Corrigé</b> · « 1993 » remplacé par 1890 (1re édition), probablement une réédition moderne dans tes notes. Je n'ai pas retrouvé la phrase « la société naît lorsqu'un homme en imite un autre ».</p></article>
+    <article class="card"><h3>René Girard <span class="year">1961</span><span class="v ok">confirmé</span></h3><p>Mensonge romantique et vérité romanesque : le désir est triangulaire, avec un sujet, un objet et un médiateur (le modèle). « Je désire toujours ce qui m'est indiqué comme désirable par un tiers. »</p><p class="src"><b>Source</b> · ton schéma sujet, modèle ou rival, objet est correct.</p></article>
+  </div>
+  <p class="fil"><b>Fil de la thèse</b> · l'imitation est le moteur des groupes organisés (partie II de ton cours) et une source possible de rivalité.</p>
+</section>
+
+<section class="thesis" id="t5" style="--c:var(--t5)">
+  <div class="thesis-head"><div class="tag">Thèse 5</div><h2>Coopérer ou entrer en conflit : la logique stratégique</h2></div>
+  <div class="cards">
+    <article class="card"><h3>Albert W. Tucker <span class="year">1950</span><span class="v nua">à nuancer</span></h3><p>Le dilemme du prisonnier a été conçu en 1950 par Merrill Flood et Melvin Dresher, à la RAND. Tucker l'a mis en forme avec des peines de prison et lui a donné son nom.</p><p class="src"><b>Écart avec tes notes</b> · attribue-lui le nom et la mise en récit, pas l'invention.</p></article>
+    <article class="card"><h3>Robert Axelrod <span class="year">1984</span><span class="v ok">confirmé</span></h3><p>The Evolution of Cooperation : il organise des tournois de dilemme du prisonnier répété. La stratégie gagnante, « donnant-donnant », est celle d'Anatol Rapoport. Elle est gentille, provocable, indulgente et claire.</p><p class="src"><b>Condition</b> · la coopération tient quand les rencontres se répètent (« ombre de l'avenir »). Pour ton oral : ce que tu as noté sur Axelrod se limitait au sujet, ceci vient de sources externes.</p></article>
+  </div>
+  <p class="fil"><b>Fil de la thèse</b> · coopérer est rationnel quand l'interaction se répète.</p>
+</section>
+
+<div class="two">
+  <section class="box"><h2>Accroche proposée</h2>
+    <p><b>Tarde</b> : « l'être social, en tant que social, est imitateur par essence » (Les lois de l'imitation, 1890). Cette citation est vérifiée et ouvre bien sur la thèse 4. L'accroche Hamlet est abandonnée : le monologue ne parle pas d'apparence.</p>
+    <h2>Rappel fiche méthodo n°8</h2>
+    <ul>
+      <li>Intro : accroche, présentation des documents, constat de départ, problématique (« Dans quelle mesure… ? » ou « En quoi… ? »), définition des termes, annonce du plan.</li>
+      <li>Plan : 3 parties, chacune avec une thèse nommée et 3 arguments reliés à ton terrain et aux auteurs du cours.</li>
+    </ul>
+  </section>
+  <section class="box"><h2>Limites</h2>
+    <p>Beaucoup de vérifications reposent sur des résumés de pages web, pas sur les livres. Le PDF scanné n'était pas lisible et ton cours ne contient peut-être pas tout ce que j'ai trouvé. Le sujet de ton devoir m'est inconnu : la trame de plan reste à adapter. Quand ton prof a dit autre chose que les sources, c'est son cours qui compte pour la notation.</p>
+    <div class="conf"><span>Confiance élevée : Durkheim, Tarde (citation), Coch et French, Axelrod, Festinger</span><span>Moyenne : Kernberg, Harari, Arendt, Tocqueville</span><span>Faible : Moscovici (non vérifié)</span></div>
+  </section>
+</div>
+
+<section class="box" aria-label="Sources">
+  <h2>Sources consultées</h2>
+  <ul class="links">
+    <li><a href="https://www.scirp.org/reference/referencespapers?referenceid=2745595">Coch et French, 1948 (SCIRP)</a></li>
+    <li><a href="https://chumbertsociologie.wordpress.com/wp-content/uploads/2015/11/tarde_lois_imitation_extrait.pdf">Tarde, Les lois de l'imitation, 2e éd., extrait</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Gabriel_Tarde">Gabriel Tarde (Wikipédia)</a></li>
+    <li><a href="https://www.ens.psl.eu/IMG/file/internationale/2010/Sujets%20lettres/Sujet%20socio%20et%20anthropo2010.pdf">Durkheim, « conformisme logique » (sujet ENS)</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Social_psychology">Allport 1985 (Wikipédia, Social psychology)</a></li>
+    <li><a href="https://vdoc.pub/documents/ideology-conflict-and-leadership-in-groups-and-organizations-6e4kbkvj0fg0">Kernberg, 1998 (texte du livre)</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Nexus:_A_Brief_History_of_Information_Networks_from_the_Stone_Age_to_AI">Harari, Nexus (Wikipédia)</a></li>
+    <li><a href="https://pubmed.ncbi.nlm.nih.gov/5968681/">Phillips et Edwards, 1966 (PubMed)</a></li>
+    <li><a href="https://www.phdane.com/posts/tversky-1974-judgement-under-uncertainty-heuristics-and-biases/">Tversky et Kahneman, 1974 (notes de lecture)</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Cognitive_dissonance">Festinger, dissonance cognitive (Wikipédia)</a></li>
+    <li><a href="https://www.maphilosophie.fr/Girard_desir.php">Girard, désir mimétique</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/The_Human_Condition_(Arendt_book)">Arendt, The Human Condition (Wikipédia)</a></li>
+    <li><a href="https://www.philolog.fr/individualisme-et-egoisme-tocqueville-2/">Tocqueville, individualisme et égoïsme</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Prisoner%27s_dilemma">Dilemme du prisonnier, Tucker, Flood et Dresher (Wikipédia)</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/The_Evolution_of_Cooperation">Axelrod, The Evolution of Cooperation (Wikipédia)</a></li>
+      </ul>
+</section>
+</div>
+
+<script>
+(function(){
+  var sections=[].slice.call(document.querySelectorAll('.thesis'));
+  var btns=[].slice.call(document.querySelectorAll('.filter button'));
+  function show(id){
+    sections.forEach(function(s){s.hidden=(id!=='all'&&s.id!==id)});
+    btns.forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-f')===id))});
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){show(b.getAttribute('data-f'))})});
+  [].slice.call(document.querySelectorAll('[data-go]')).forEach(function(c){
+    c.addEventListener('click',function(){
+      var id=c.getAttribute('data-go');show('all');
+      var el=document.getElementById(id);if(el){el.scrollIntoView({behavior:'smooth',block:'start'})}
+    });
+  });
+})();
+</script>
+
+</body></html>
